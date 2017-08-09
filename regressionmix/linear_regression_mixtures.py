@@ -117,7 +117,9 @@ class LinearRegressionsMixture(Model):
 
             # Compute expected mixture weights
             gamma = np.tile(pi, (N, 1)) * probabilities
-            gamma /= np.tile(np.sum(gamma, 1), (self.K, 1)).T
+            sum_gamma = np.tile(np.sum(gamma, 1), (self.K, 1)).T
+            sum_gamma[sum_gamma == 0] = 1
+            gamma /= sum_gamma
 
             # M-step
 
