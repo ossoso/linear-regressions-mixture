@@ -413,4 +413,4 @@ class LinearRegressionsMixture(Model):
         """
         if verbose:
             print("Evaluating model %s..." % self.name)
-        return self._evaluate(self.X, X_test, y_test, verbose)
+        return self._evaluate(X_test, y_test, verbose)
